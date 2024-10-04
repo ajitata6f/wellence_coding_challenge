@@ -1,0 +1,43 @@
+
+services:
+  postgresql_db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: tasksdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Security01
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - tasks_app_network
+  task-api:
+    image: tasks
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_NAME=tasksdb
+      - DB_USER=postgres
+      - DB_PASSWORD=Security01
+      - DB_HOST=postgresql_db
+      - DB_PORT=5432
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_EMAIL=admin@gmail.com
+      - DJANGO_SUPERUSER_PASSWORD=password
+    command: >
+      sh -c "python manage.py makemigrations &&
+             python manage.py migrate &&
+             python manage.py createsuperuser --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - postgresql_db
+    networks:
+      - tasks_app_network
+
+volumes:
+  postgres_data:
+
+networks:
+  tasks_app_network:
+    driver: bridge
