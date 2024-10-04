@@ -25,18 +25,18 @@ def update_task(request, task_id: int, payload: UpdateTaskSchemaIn):
     return services.update_task(payload)
 
 
-@tasks_router.delete("/{int:task_id}")
+@tasks_router.delete("/{int:task_id}", auth=JWTAuth())
 def delete_task(request, task_id: int):
     services.delete_task(task_id=task_id)
     return HttpResponse(status=HTTPStatus.NO_CONTENT)
 
 
-@tasks_router.get("/{int:task_id}", response=TaskSchemaOut)
+@tasks_router.get("/{int:task_id}", response=TaskSchemaOut, auth=JWTAuth())
 def get_task(request, task_id: int):
     return services.get_task(task_id)
 
 
-@tasks_router.get("/", response=list[TaskSchemaOut])
+@tasks_router.get("/", response=list[TaskSchemaOut], auth=JWTAuth())
 @paginate
 def list_tasks(request):
     return services.list_tasks()
