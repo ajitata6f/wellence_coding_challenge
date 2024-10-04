@@ -12,13 +12,13 @@ class Task(models.Model):
         (priority.value, priority.name) for priority in TaskPriority
     ]
 
-    user_email = models.EmailField(unique=True)
+    user_email = models.EmailField()
     task = models.CharField(max_length=200)
     due_by = models.DateTimeField()
     priority = models.IntegerField(choices=PRIORITY_CHOICES)
     is_urgent = models.BooleanField(default=False)
     assignee = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    author = models.IntegerField(blank=False)
+    created_by = models.IntegerField(blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
