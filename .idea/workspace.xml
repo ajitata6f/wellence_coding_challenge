@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7dd6ea2-5b47-46b3-9c79-6fde35d383de" name="Changes" comment="code refactoring">
+    <list default="true" id="e7dd6ea2-5b47-46b3-9c79-6fde35d383de" name="Changes" comment="Add migration files">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tasks/api/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/api/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tasks/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/schemas.py" afterDir="false" />
@@ -28,9 +29,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2mqYNyrkqVC0s62KSCwDpAJPL7s" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -42,7 +43,7 @@
     "Django Server.wellence_coding_challenge.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/tasks__filters",
+    "git-widget-placeholder": "feature/implement__dashboard__endpoint",
     "last_opened_file_path": "/Users/ajitata/PycharmProjects/wellence_coding_challenge/tasks/api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -297,12 +298,12 @@
     <MESSAGE value="Add request and response schemas" />
     <MESSAGE value="implement auth service" />
     <MESSAGE value="Add packages" />
-    <MESSAGE value="Add migration files" />
     <MESSAGE value="Add auth parameter" />
     <MESSAGE value="Add requirements.txt file" />
     <MESSAGE value="Add Dockerfile" />
     <MESSAGE value="Add docker-compose file" />
     <MESSAGE value="code refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="code refactoring" />
+    <MESSAGE value="Add migration files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add migration files" />
   </component>
 </project>

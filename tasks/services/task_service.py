@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 from tasks.models import Task
-from tasks.schemas import CreateTaskSchemaIn, UpdateTaskSchemaIn, TaskFilterSchema
+from tasks.schemas import CreateTaskSchemaIn, UpdateTaskSchemaIn, TaskFilterSchema, DashboardSchemaOut
 
 
 def create_task(current_user: User, payload: CreateTaskSchemaIn) -> Task:
@@ -20,6 +20,7 @@ def create_task(current_user: User, payload: CreateTaskSchemaIn) -> Task:
 
     return task
 
+
 def update_task(payload: UpdateTaskSchemaIn) -> Task:
     task = get_object_or_404(Task, id=payload.id)
 
@@ -31,9 +32,11 @@ def update_task(payload: UpdateTaskSchemaIn) -> Task:
 
     return task
 
+
 def get_task(task_id) -> Task:
     task = get_object_or_404(Task, id=task_id)
     return task
+
 
 def delete_task(task_id):
     task = get_object_or_404(Task, id=task_id)
@@ -48,3 +51,8 @@ def list_tasks(filters: TaskFilterSchema) -> list[Task]:
         tasks_query = tasks_query.filter(due_by__lte=timezone.make_aware(datetime.now(), timezone=timezone.get_current_timezone()))
 
     return tasks_query
+
+
+def task_report() -> DashboardSchemaOut:
+
+    return DashboardSchemaOut()

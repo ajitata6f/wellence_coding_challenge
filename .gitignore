@@ -109,8 +109,6 @@ venv.bak/
 # mkdocs documentation
 /site
 
-.wellence_coding_challenge/__pycache__
-
 # Sublime Text #
 *.tmlanguage.cache
 *.tmPreferences.cache

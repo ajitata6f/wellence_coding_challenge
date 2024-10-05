@@ -7,7 +7,7 @@ from ninja.pagination import paginate
 
 from tasks.services import task_service as services
 from tasks.schemas import CreateTaskSchemaOut, CreateTaskSchemaIn, UpdateTaskSchemaIn, UpdateTaskSchemaOut, \
-    TaskSchemaOut, TaskFilterSchema
+    TaskSchemaOut, TaskFilterSchema, DashboardSchemaOut
 from tasks.security import JWTAuth
 
 tasks_router = Router(tags=["tasks"])
@@ -39,3 +39,10 @@ def get_task(request, task_id: int):
 @paginate
 def list_tasks(request, filters: TaskFilterSchema = Query()):
     return services.list_tasks(filters)
+def list_tasks(request):
+    return services.list_tasks()
+
+
+@tasks_router.get("/dashboard", response=DashboardSchemaOut, auth=JWTAuth())
+def dashboard_report(request):
+    return services.task_report()
