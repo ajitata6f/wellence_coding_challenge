@@ -2,12 +2,12 @@ from http import HTTPStatus
 
 from django.contrib.auth.decorators import login_required
 from django.http import  HttpResponse
-from ninja import Router
+from ninja import Router, Query
 from ninja.pagination import paginate
 
 from tasks.services import task_service as services
 from tasks.schemas import CreateTaskSchemaOut, CreateTaskSchemaIn, UpdateTaskSchemaIn, UpdateTaskSchemaOut, \
-    TaskSchemaOut
+    TaskSchemaOut, TaskFilterSchema
 from tasks.security import JWTAuth
 
 tasks_router = Router(tags=["tasks"])
@@ -19,7 +19,6 @@ def create_task(request, payload: CreateTaskSchemaIn):
 
 
 @tasks_router.put("/{int:task_id}" , response= {200: UpdateTaskSchemaOut}, auth=JWTAuth())
-@login_required
 def update_task(request, task_id: int, payload: UpdateTaskSchemaIn):
     payload.id = task_id
     return services.update_task(payload)
@@ -38,5 +37,5 @@ def get_task(request, task_id: int):
 
 @tasks_router.get("/", response=list[TaskSchemaOut], auth=JWTAuth())
 @paginate
-def list_tasks(request):
-    return services.list_tasks()
+def list_tasks(request, filters: TaskFilterSchema = Query()):
+    return services.list_tasks(filters)
