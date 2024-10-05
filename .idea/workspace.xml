@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7dd6ea2-5b47-46b3-9c79-6fde35d383de" name="Changes" comment="Add migration files">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wellence_coding_challenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wellence_coding_challenge.iml" afterDir="false" />
+    <list default="true" id="e7dd6ea2-5b47-46b3-9c79-6fde35d383de" name="Changes" comment="code refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wellence_coding_challenge/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/wellence_coding_challenge/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/api/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/api/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/services/task_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/services/task_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,7 @@
     "Django Server.wellence_coding_challenge.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/tasks__filters",
     "last_opened_file_path": "/Users/ajitata/PycharmProjects/wellence_coding_challenge/tasks/api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -103,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727805538033</updated>
-      <workItem from="1727805550109" duration="89937000" />
+      <workItem from="1727805550109" duration="97466000" />
     </task>
     <task id="LOCAL-00001" summary="Add task model">
       <option name="closed" value="true" />
@@ -225,11 +225,62 @@
       <option name="project" value="LOCAL" />
       <updated>1728052706571</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add auth parameter">
+      <option name="closed" value="true" />
+      <created>1728068015236</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728068015236</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add requirements.txt file">
+      <option name="closed" value="true" />
+      <created>1728068040929</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728068040929</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add Dockerfile">
+      <option name="closed" value="true" />
+      <created>1728068059526</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728068059526</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add docker-compose file">
+      <option name="closed" value="true" />
+      <created>1728068069383</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1728068069383</updated>
+    </task>
+    <task id="LOCAL-00020" summary="code refactoring">
+      <option name="closed" value="true" />
+      <created>1728068094327</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728068094327</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add task model" />
@@ -247,6 +298,11 @@
     <MESSAGE value="implement auth service" />
     <MESSAGE value="Add packages" />
     <MESSAGE value="Add migration files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add migration files" />
+    <MESSAGE value="Add auth parameter" />
+    <MESSAGE value="Add requirements.txt file" />
+    <MESSAGE value="Add Dockerfile" />
+    <MESSAGE value="Add docker-compose file" />
+    <MESSAGE value="code refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="code refactoring" />
   </component>
 </project>

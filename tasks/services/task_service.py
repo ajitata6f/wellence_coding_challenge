@@ -1,11 +1,12 @@
+from datetime import datetime
+
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
-from typing import Any
 
 from django.contrib.auth.models import User
 
 from tasks.models import Task
-from tasks.schemas import CreateTaskSchemaIn, UpdateTaskSchemaIn
+from tasks.schemas import CreateTaskSchemaIn, UpdateTaskSchemaIn, TaskFilterSchema
 
 
 def create_task(current_user: User, payload: CreateTaskSchemaIn) -> Task:
@@ -39,5 +40,11 @@ def delete_task(task_id):
     task.delete()
 
 
-def list_tasks() -> list[Task]:
-    return Task.objects.all()
+def list_tasks(filters: TaskFilterSchema) -> list[Task]:
+    tasks_query = Task.objects.all()
+
+
+    if filters.due:
+        tasks_query = tasks_query.filter(due_by__lte=timezone.make_aware(datetime.now(), timezone=timezone.get_current_timezone()))
+
+    return tasks_query

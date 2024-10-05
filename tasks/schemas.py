@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import Optional
 
 from django.utils import timezone
-from ninja import Schema, Field
+from ninja import Schema, Field, FilterSchema
 from pydantic import EmailStr, model_validator
 from typing_extensions import Self
 
@@ -135,4 +135,10 @@ class RefreshTokenSchemaIn(Schema):
     refresh_token: str
 
     class Config:
-        description = "refresh token request Schema"
+        description = "Refresh token request Schema"
+
+class TaskFilterSchema(FilterSchema):
+    due: bool = None
+
+    class Config:
+        description = "Schema to encapsulate GET parameters"
