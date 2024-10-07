@@ -3,7 +3,7 @@ from typing import Optional
 
 from django.utils import timezone
 from ninja import Schema, Field, FilterSchema
-from pydantic import EmailStr, model_validator
+from pydantic import EmailStr, model_validator, field_serializer
 from typing_extensions import Self
 
 from tasks.enums import TaskPriority
@@ -41,19 +41,25 @@ class CreateTaskSchemaIn(Schema):
     class Config:
         description = "Request Schema for creating a new task"
 
+
 class CreateTaskSchemaOut(Schema):
     id: int
     task: str
     user_email: EmailStr
     due_by: datetime
-    priority: int
+    priority: TaskPriority
     is_urgent: bool
     created_at: datetime
     updated_at: datetime
     created_by: int
 
+    @field_serializer("priority")
+    def serialize_group(self, priority: TaskPriority, _info):
+        return priority.name
+
     class Config:
         description = "Response Schema for creating a new task"
+
 
 class UpdateTaskSchemaIn(Schema):
     id: int = Field(None, )
@@ -88,30 +94,40 @@ class UpdateTaskSchemaIn(Schema):
     class Config:
         description = "Request Schema for updating a task"
 
+
 class UpdateTaskSchemaOut(Schema):
     id: int
     task: str
     user_email: EmailStr
     due_by: datetime
-    priority: int
+    priority: TaskPriority
     is_urgent: bool
     created_at: datetime
     updated_at: datetime
     created_by: int
 
+    @field_serializer("priority")
+    def serialize_group(self, priority: TaskPriority, _info):
+        return priority.name
+
     class Config:
         description = "Response Schema for updating a task"
+
 
 class TaskSchemaOut(Schema):
     id: int
     task: str
     user_email: EmailStr
     due_by: datetime
-    priority: int
+    priority: TaskPriority
     is_urgent: bool
     created_at: datetime
     updated_at: datetime
     created_by: int
+
+    @field_serializer("priority")
+    def serialize_group(self, priority: TaskPriority, _info):
+        return priority.name
 
     class Config:
         description = "Response Schema for a task"
@@ -122,6 +138,7 @@ class LoginSchema(Schema):
 
     class Config:
         description = "Login request Schema"
+
 
 class TokenSchemaOut(Schema):
     access_token: str
@@ -142,3 +159,23 @@ class TaskFilterSchema(FilterSchema):
 
     class Config:
         description = "Schema to encapsulate GET parameters"
+        description = "refresh token request Schema"
+
+
+class LineChartSchema(Schema):
+    high: int
+    mid: int
+    low: int
+
+
+class PieChartSchema(Schema):
+    high: int
+    mid: int
+    low: int
+
+
+class DashboardSchemaOut(Schema):
+    urgent_due_tasks: int
+    line_chart: LineChartSchema
+    pie_chart: PieChartSchema
+
